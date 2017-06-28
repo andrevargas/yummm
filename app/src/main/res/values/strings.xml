@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Yummm</string>
+    <string name="rating_description">Descrição</string>
 </resources>
