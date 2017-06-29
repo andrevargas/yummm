@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">Yummm</string>
     <string name="rating_description">Descrição</string>
+    <string name="rating_select_category">Selecione uma categoria</string>
+    <string name="rating_value">Avaliação</string>
+    <string-array name="category_names">
+        <item>@string/rating_select_category</item>
+        <item>Entrada</item>
+        <item>Prato principal</item>
+        <item>Sobremesa</item>
+        <item>Lanche</item>
+    </string-array>
+    <string-array name="category_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
 </resources>
