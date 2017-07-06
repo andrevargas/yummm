@@ -62,12 +62,12 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="16dp"
-                android:textSize="16sp"
-                android:text="@string/rating_value" />
+                android:layout_marginTop="8dp"
+                android:text="@string/rating_value"
+                android:textSize="16sp" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -78,6 +78,8 @@
                     android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
                     android:numStars="5"
                     android:stepSize="1" />
 
@@ -85,21 +87,28 @@
                     android:id="@+id/imageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_add_a_photo_black_48dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="40dp"
+                    android:background="@android:color/transparent"
+                    android:backgroundTint="@android:color/transparent"
+                    android:tint="@color/colorPrimary"
+                    app:srcCompat="@drawable/ic_photo_camera_black_48dp"
+                    android:onClick="addPicture"/>
 
-            </LinearLayout>
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/ivPicture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:adjustViewBounds="true" />
 
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="100dp" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

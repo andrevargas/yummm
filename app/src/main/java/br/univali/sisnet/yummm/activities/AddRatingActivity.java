@@ -18,6 +18,8 @@ import android.support.v4.content.FileProvider;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 
 import java.io.File;
@@ -71,7 +73,8 @@ public class AddRatingActivity extends AppCompatActivity {
                     "br.univali.sisnet.yummm",
                     picture
             );
-
+            ImageView ivPicture = (ImageView) findViewById(R.id.ivPicture);
+            ivPicture.setImageURI(pictureUri);
         }
     }
 
@@ -106,7 +109,7 @@ public class AddRatingActivity extends AppCompatActivity {
         }
     }
 
-    private void addPicture() {
+    public void addPicture(View view) {
         createNewPictureFile();
         Uri pictureUri = FileProvider.getUriForFile(
             this,
