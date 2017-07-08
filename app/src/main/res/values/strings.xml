@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">Yummm</string>
+    <string name="add_rating">Adicionar avaliação</string>
     <string name="rating_description">Descrição</string>
     <string name="rating_select_category">Selecione uma categoria</string>
     <string name="rating_value">Avaliação</string>
+    <string name="error_field_required">Este campo é obrigatório</string>
+    <string name="error_select_category">Selecione uma categoria.</string>
+    <string name="error_add_picture">Adicione uma fotografia do prato.</string>
+    <string name="text_rating_info">Avaliado com %1$d estrela(s) em %2$s</string>
     <string-array name="category_names">
         <item>@string/rating_select_category</item>
         <item>Entrada</item>

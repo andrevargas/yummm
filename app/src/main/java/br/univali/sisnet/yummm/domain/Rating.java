@@ -7,7 +7,7 @@ import io.realm.annotations.PrimaryKey;
 
 public class Rating extends RealmObject {
 
-    @PrimaryKey private long id;
+    @PrimaryKey private String id;
     private String description;
     private int category;
     private int ratingValue;
@@ -20,11 +20,11 @@ public class Rating extends RealmObject {
         createdAt = new Date();
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -78,10 +78,6 @@ public class Rating extends RealmObject {
 
     public Date getCreatedAt() {
         return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
     }
 
 }
