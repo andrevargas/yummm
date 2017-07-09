@@ -10,24 +10,20 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 
 import br.univali.sisnet.yummm.R;
-import br.univali.sisnet.yummm.activities.MainActivity;
 import br.univali.sisnet.yummm.domain.Rating;
 
 public class RatingHolder extends RecyclerView.ViewHolder {
 
     private View itemView;
-    private MainActivity.OnItemSelectedListener listener;
 
     private TextView tvCategory;
     private TextView tvDescription;
     private TextView tvRatingInfo;
     private ImageView ivThumbnail;
 
-    public RatingHolder(View itemView, MainActivity.OnItemSelectedListener listener) {
+    public RatingHolder(View itemView) {
         super(itemView);
-
         this.itemView = itemView;
-        this.listener = listener;
 
         tvCategory = (TextView) itemView.findViewById(R.id.tvCategory);
         tvDescription = (TextView) itemView.findViewById(R.id.tvDescription);
@@ -49,14 +45,6 @@ public class RatingHolder extends RecyclerView.ViewHolder {
 
         Bitmap picture = BitmapFactory.decodeFile(item.getPicturePath());
         ivThumbnail.setImageBitmap(picture);
-
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onItemSelect(item);
-            }
-        });
-
     }
 
 }

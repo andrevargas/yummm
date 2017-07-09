@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 
 import br.univali.sisnet.yummm.R;
@@ -18,8 +17,6 @@ import io.realm.Realm;
 public class MainActivity extends AppCompatActivity {
 
     private Realm realm = Realm.getDefaultInstance();
-
-    private RecyclerView rvRatings;
     private RatingAdapter adapter;
 
     @Override
@@ -31,23 +28,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView() {
-
-        rvRatings = (RecyclerView) findViewById(R.id.rvRatings);
-        adapter = new RatingAdapter(
-            realm.where(Rating.class).findAll(),
-            new OnItemSelectedListener() {
-                @Override
-                public void onItemSelect(Rating item) {
-                    Intent intent = new Intent(MainActivity.this, MapActivity.class);
-                    intent.putExtra("rating_id", item.getId());
-                    startActivity(intent);
-                }
-            }
-        );
-
+        RecyclerView rvRatings = (RecyclerView) findViewById(R.id.rvRatings);
+        adapter = new RatingAdapter(realm.where(Rating.class).findAll());
         rvRatings.setLayoutManager(new LinearLayoutManager(this));
         rvRatings.setAdapter(adapter);
-
     }
 
     private void setupUi() {
@@ -61,16 +45,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickMap(View view) {
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
         if (adapter != null) {
             adapter.notifyDataSetChanged();
         }
-    }
-
-    public interface OnItemSelectedListener {
-        void onItemSelect(Rating item);
     }
 
 }

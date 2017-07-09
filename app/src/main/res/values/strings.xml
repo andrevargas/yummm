@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Yummm</string>
     <string name="add_rating">Adicionar avaliação</string>
+    <string name="view_in_map">Visualizar no mapa</string>
     <string name="rating_description">Descrição</string>
     <string name="rating_select_category">Selecione uma categoria</string>
     <string name="rating_value">Avaliação</string>
