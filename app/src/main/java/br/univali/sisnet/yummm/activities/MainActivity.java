@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import br.univali.sisnet.yummm.R;
@@ -32,9 +33,17 @@ public class MainActivity extends AppCompatActivity {
     private void setupRecyclerView() {
 
         rvRatings = (RecyclerView) findViewById(R.id.rvRatings);
-        adapter = new RatingAdapter();
-
-        adapter.setList(realm.where(Rating.class).findAll());
+        adapter = new RatingAdapter(
+            realm.where(Rating.class).findAll(),
+            new OnItemSelectedListener() {
+                @Override
+                public void onItemSelect(Rating item) {
+                    Intent intent = new Intent(MainActivity.this, MapActivity.class);
+                    intent.putExtra("rating_id", item.getId());
+                    startActivity(intent);
+                }
+            }
+        );
 
         rvRatings.setLayoutManager(new LinearLayoutManager(this));
         rvRatings.setAdapter(adapter);
@@ -59,4 +68,9 @@ public class MainActivity extends AppCompatActivity {
             adapter.notifyDataSetChanged();
         }
     }
+
+    public interface OnItemSelectedListener {
+        void onItemSelect(Rating item);
+    }
+
 }

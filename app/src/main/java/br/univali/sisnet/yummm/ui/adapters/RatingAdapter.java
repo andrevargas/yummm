@@ -9,15 +9,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.univali.sisnet.yummm.R;
+import br.univali.sisnet.yummm.activities.MainActivity;
 import br.univali.sisnet.yummm.domain.Rating;
 import br.univali.sisnet.yummm.ui.holders.RatingHolder;
 
 public class RatingAdapter extends RecyclerView.Adapter<RatingHolder> {
 
     private List<Rating> ratingList;
+    private MainActivity.OnItemSelectedListener listener;
 
-    public void setList(List<Rating> list) {
-        ratingList = list;
+    public RatingAdapter(List<Rating> ratingList, MainActivity.OnItemSelectedListener listener) {
+        this.ratingList = ratingList;
+        this.listener = listener;
     }
 
     @Override
@@ -25,7 +28,7 @@ public class RatingAdapter extends RecyclerView.Adapter<RatingHolder> {
         View view = LayoutInflater
             .from(parent.getContext())
             .inflate(R.layout.item_rating, parent, false);
-        return new RatingHolder(view);
+        return new RatingHolder(view, listener);
     }
 
     @Override
